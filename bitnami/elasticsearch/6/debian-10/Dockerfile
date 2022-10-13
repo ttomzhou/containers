@@ -10,7 +10,7 @@ ENV HOME="/" \
 ARG ELASTICSEARCH_PLUGINS=""
 ARG JAVA_EXTRA_SECURITY_DIR="/bitnami/java/extra-security"
 
-COPY jvm.option /opt/bitnami/elasticsearch/config/
+COPY jvm.options /opt/bitnami/elasticsearch/config/
 COPY prebuildfs /
 # Install required system packages and dependencies
 RUN install_packages acl ca-certificates curl gzip hostname libc6 procps tar zlib1g
