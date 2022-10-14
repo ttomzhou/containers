@@ -334,6 +334,9 @@ elasticsearch_cluster_configuration() {
     elasticsearch_conf_set network.bind_host "$(bind_address)"
     elasticsearch_conf_set cluster.name "$ELASTICSEARCH_CLUSTER_NAME"
     elasticsearch_conf_set node.name "${ELASTICSEARCH_NODE_NAME:-$(hostname)}"
+    elasticsearch_conf_set xpack.ml.enabled false
+    elasticsearch_conf_set bootstrap.memory_lock false
+    elasticsearch_conf_set bootstrap.system_call_filter false
 
     if [[ -n "$ELASTICSEARCH_CLUSTER_HOSTS" ]]; then
         read -r -a host_list <<<"$(tr ',;' ' ' <<<"$ELASTICSEARCH_CLUSTER_HOSTS")"
