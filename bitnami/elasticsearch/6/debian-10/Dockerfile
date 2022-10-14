@@ -34,5 +34,6 @@ EXPOSE 9200 9300
 USER 1001
 
 COPY jvm.options /opt/bitnami/elasticsearch/config/
+COPY elasticsearch.yml /opt/bitnami/elasticsearch/config/
 ENTRYPOINT [ "/opt/bitnami/scripts/elasticsearch/entrypoint.sh" ]
 CMD [ "/opt/bitnami/scripts/elasticsearch/run.sh" ]
