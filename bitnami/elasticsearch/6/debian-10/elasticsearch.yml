@@ -87,3 +87,6 @@ network.host: 0.0.0.0
 #
 #action.destructive_requires_name: true
 xpack.ml.enabled: false
+
+bootstrap.memory_lock: false
+bootstrap.system_call_filter: false
