@@ -10,7 +10,6 @@ ENV HOME="/" \
 ARG ELASTICSEARCH_PLUGINS=""
 ARG JAVA_EXTRA_SECURITY_DIR="/bitnami/java/extra-security"
 
-COPY jvm.options /opt/bitnami/elasticsearch/config/
 COPY prebuildfs /
 # Install required system packages and dependencies
 RUN install_packages acl ca-certificates curl gzip hostname libc6 procps tar zlib1g
@@ -33,5 +32,7 @@ ENV BITNAMI_APP_NAME="elasticsearch" \
 EXPOSE 9200 9300
 
 USER 1001
+
+COPY jvm.options /opt/bitnami/elasticsearch/config/
 ENTRYPOINT [ "/opt/bitnami/scripts/elasticsearch/entrypoint.sh" ]
 CMD [ "/opt/bitnami/scripts/elasticsearch/run.sh" ]
